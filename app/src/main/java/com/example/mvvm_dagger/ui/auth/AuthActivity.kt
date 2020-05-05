@@ -9,9 +9,7 @@ import javax.inject.Inject
 
 class AuthActivity : DaggerAppCompatActivity() {
 
-    companion object {
-        val TAG: String = "TAG --- ${AuthActivity::class.java.simpleName} --->"
-    }
+    private val TAG: String = "TAG --- ${AuthActivity::class.java.simpleName} --->"
 
     @Inject
     internal lateinit var factory: ViewModelProviderFactory
