@@ -1,9 +1,14 @@
 package com.example.mvvm_dagger.di.modules
 
+import android.app.Application
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.mvvm_dagger.viewmodelproviderfactory.ViewModelProviderFactory
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 abstract class ViewModelProviderFactoryModule {

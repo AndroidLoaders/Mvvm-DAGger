@@ -1,15 +1,27 @@
 package com.example.mvvm_dagger.di.modules
 
+import com.example.mvvm_dagger.datamanager.AppDataManager
+import com.example.mvvm_dagger.datamanager.DataManager
+import com.example.mvvm_dagger.networkadapter.api.apimanager.ApiManager
+import com.example.mvvm_dagger.networkadapter.api.apirequest.ApiRequest
+import com.example.mvvm_dagger.preferences.PreferenceManager
+import com.example.mvvm_dagger.preferences.PreferenceRequest
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
 @Module
-class AppModule {
+abstract class AppModule {
 
-    @Provides
-    fun provideApiClient(): Retrofit = Retrofit.Builder().baseUrl("")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    @Singleton
+    @Binds
+    protected abstract fun bindPreferenceManager(dataManager: PreferenceManager): PreferenceRequest
+
+    @Singleton
+    @Binds
+    protected abstract fun bindApiManager(apiManager: ApiManager): ApiRequest
+
+    @Singleton
+    @Binds
+    protected abstract fun bindDataManager(dataManager: AppDataManager): DataManager
 }

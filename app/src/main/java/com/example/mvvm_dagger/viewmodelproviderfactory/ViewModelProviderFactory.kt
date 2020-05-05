@@ -11,6 +11,7 @@ class ViewModelProviderFactory @Inject constructor(
 
     private val TAG: String = "TAG --- ${ViewModelProviderFactory::class.java.simpleName} --->"
 
+    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         val vmProvider: Provider<ViewModel>? = vmCreator[modelClass]
         try {

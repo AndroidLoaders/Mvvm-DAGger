@@ -10,12 +10,20 @@ import dagger.multibindings.IntoMap
 @Module
 abstract class AuthViewModelModule {
 
+    /**
+     * * @Provides
+     * @IntoMap
+     * @ViewModelKey(AuthViewModel::class)
+     * fun provideViewModel(viewModel: AuthViewModel): ViewModel = viewModel
+     *
+     * If you want to use @Provides annotation same as above then remove bindViewModel
+     * method below
+     *
+     * */
     @Binds
     @IntoMap
     @ViewModelKey(AuthViewModel::class)
     abstract fun bindViewModel(viewModel: AuthViewModel): ViewModel
 
-    /*@Provides
-    @ViewModelKey(AuthViewModel::class)
-    fun provideViewModel(viewModel: AuthViewModel): ViewModel = viewModel*/
+
 }
