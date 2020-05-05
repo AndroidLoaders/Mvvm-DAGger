@@ -1,8 +1,7 @@
 package com.example.mvvm_dagger.ui.auth
 
 import android.os.Bundle
-import android.widget.Toast
-import com.example.mvvm_dagger.base.extensions.getViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.mvvm_dagger.datamanager.DataManager
 import com.example.mvvm_dagger.viewmodelproviderfactory.ViewModelProviderFactory
 import dagger.android.support.DaggerAppCompatActivity
@@ -20,11 +19,13 @@ class AuthActivity : DaggerAppCompatActivity() {
     @Inject
     internal lateinit var dataManager: DataManager
 
-    private val viewModel: AuthViewModel by lazy { getViewModel(factory) }
+    private val viewModel: AuthViewModel by lazy {
+        ViewModelProvider(this, factory)[AuthViewModel::class.java]
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (::dataManager.isInitialized) {
+        /*if (::dataManager.isInitialized) {
             Toast.makeText(this, "DataManager initialised", Toast.LENGTH_SHORT).show()
             println("$TAG ${dataManager.getAccessToken()}")
             dataManager.getLoginUserDetails().subscribe({
@@ -32,6 +33,6 @@ class AuthActivity : DaggerAppCompatActivity() {
             }, {
                 println("$TAG ${it.message}")
             })
-        }
+        }*/
     }
 }
