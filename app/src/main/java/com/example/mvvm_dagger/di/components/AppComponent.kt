@@ -6,6 +6,7 @@ import com.example.mvvm_dagger.di.modules.ActivityBuildersModule
 import com.example.mvvm_dagger.di.modules.AppModule
 import com.example.mvvm_dagger.di.modules.ViewModelProviderFactoryModule
 import com.example.mvvm_dagger.networkadapter.api.apirequest.ApiInterface
+import com.example.mvvm_dagger.ui.auth.AuthActivity
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector

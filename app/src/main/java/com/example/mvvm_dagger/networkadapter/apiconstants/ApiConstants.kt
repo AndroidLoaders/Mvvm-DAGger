@@ -1,6 +1,8 @@
-package com.example.mvvm_example.networkadapter.apiconstants
+package com.example.mvvm_dagger.networkadapter.apiconstants
 
 object ApiConstants {
+
+    const val Id: String = "id"
 
     const val StatusCode: String = "status_code"
     const val AccessToken: String = "access_token"
