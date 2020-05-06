@@ -1,8 +1,10 @@
 package com.example.mvvm_dagger.ui.auth
 
 import android.os.Bundle
+import com.example.mvvm_dagger.R
 import com.example.mvvm_dagger.datamanager.DataManager
 import dagger.android.support.DaggerAppCompatActivity
+import kotlinx.android.synthetic.main.activity_auth.*
 import javax.inject.Inject
 
 class AuthActivity : DaggerAppCompatActivity() {
@@ -17,17 +19,12 @@ class AuthActivity : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_auth)
 
-        viewModel.showLog()
-
-        /*if (::dataManager.isInitialized) {
-            Toast.makeText(this, "DataManager initialised", Toast.LENGTH_SHORT).show()
-            println("$TAG ${dataManager.getAccessToken()}")
-            dataManager.getLoginUserDetails().subscribe({
-                println("$TAG ApiManager injected")
-            }, {
-                println("$TAG ${it.message}")
-            })
-        }*/
+        btnAuthenticate.setOnClickListener {
+            val userId: String = etUseId.text.toString()
+            if (userId.isNotEmpty() && (userId != "0"))
+                viewModel.authenticateUserWithId(userId.toInt())
+        }
     }
 }
