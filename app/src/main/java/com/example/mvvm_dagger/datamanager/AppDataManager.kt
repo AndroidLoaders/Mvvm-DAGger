@@ -1,8 +1,9 @@
 package com.example.mvvm_dagger.datamanager
 
 import com.example.mvvm_dagger.models.User
-import com.example.mvvm_dagger.networkadapter.api.apirequest.ApiRequest
+import com.example.mvvm_dagger.networkadapter.api.requests.ApiRequest
 import com.example.mvvm_dagger.preferences.PreferenceRequest
+import io.reactivex.Flowable
 import io.reactivex.Single
 import javax.inject.Inject
 

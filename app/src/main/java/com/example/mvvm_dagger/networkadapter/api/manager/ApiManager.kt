@@ -1,9 +1,9 @@
-package com.example.mvvm_dagger.networkadapter.api.apimanager
+package com.example.mvvm_dagger.networkadapter.api.manager
 
 import com.example.mvvm_dagger.base.extensions.rx.subscribeAndObserveWithDelaySubscription
 import com.example.mvvm_dagger.models.User
-import com.example.mvvm_dagger.networkadapter.api.apirequest.ApiInterface
-import com.example.mvvm_dagger.networkadapter.api.apirequest.ApiRequest
+import com.example.mvvm_dagger.networkadapter.api.requests.ApiInterface
+import com.example.mvvm_dagger.networkadapter.api.requests.ApiRequest
 import io.reactivex.Single
 import javax.inject.Inject
 

@@ -1,19 +1,14 @@
 package com.example.mvvm_dagger.di.modules
 
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.example.mvvm_dagger.datamanager.AppDataManager
 import com.example.mvvm_dagger.datamanager.DataManager
-import com.example.mvvm_dagger.networkadapter.api.apimanager.ApiManager
-import com.example.mvvm_dagger.networkadapter.api.apirequest.ApiRequest
+import com.example.mvvm_dagger.networkadapter.api.manager.ApiManager
+import com.example.mvvm_dagger.networkadapter.api.requests.ApiRequest
 import com.example.mvvm_dagger.preferences.PreferenceManager
 import com.example.mvvm_dagger.preferences.PreferenceRequest
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import javax.inject.Singleton
-import kotlin.reflect.KClass
 
 @Module
 abstract class AppModule {

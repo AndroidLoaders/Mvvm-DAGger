@@ -2,7 +2,7 @@ package com.example.mvvm_dagger.networkadapter.retrofit
 
 import android.app.Application
 import com.example.mvvm_dagger.BuildConfig
-import com.example.mvvm_dagger.networkadapter.api.apirequest.ApiInterface
+import com.example.mvvm_dagger.networkadapter.api.requests.ApiInterface
 import com.google.gson.GsonBuilder
 import okhttp3.Cache
 import okhttp3.OkHttpClient
