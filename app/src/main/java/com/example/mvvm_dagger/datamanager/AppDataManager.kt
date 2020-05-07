@@ -3,9 +3,7 @@ package com.example.mvvm_dagger.datamanager
 import com.example.mvvm_dagger.models.User
 import com.example.mvvm_dagger.networkadapter.api.apirequest.ApiRequest
 import com.example.mvvm_dagger.preferences.PreferenceRequest
-import com.example.mvvm_dagger.repository.UserRepository
 import io.reactivex.Single
-import okhttp3.ResponseBody
 import javax.inject.Inject
 
 class AppDataManager @Inject constructor(
@@ -13,7 +11,8 @@ class AppDataManager @Inject constructor(
 ) : DataManager {
 
     // ApiRequest Callbacks
-    override fun getLoginUserDetails(userId:Int): Single<UserRepository> = apiRequest.getLoginUserDetails(userId)
+    override fun getLoginUserDetails(userId: Int): Single<User> =
+        apiRequest.getLoginUserDetails(userId)
 
     // PreferenceRequest Callbacks
     override fun isLogin(): Boolean = preferences.isLogin()

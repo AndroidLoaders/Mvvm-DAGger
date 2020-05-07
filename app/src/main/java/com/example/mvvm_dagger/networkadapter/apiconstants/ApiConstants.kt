@@ -8,4 +8,5 @@ object ApiConstants {
     const val ZipCode: String = "zipcode"
     const val PhoneNumber: String = "phone"
     const val WebSite: String = "website"
+    const val Address: String = "address"
 }
