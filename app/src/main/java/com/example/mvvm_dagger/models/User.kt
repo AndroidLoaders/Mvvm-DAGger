@@ -47,7 +47,15 @@ data class User(
 
     @SerializedName(ApiConstants.Address)
     private val address: Address? = null
-)
+) {
+    fun getUserId() = id ?: "0"
+    fun getName() = name ?: ""
+    fun getUserName() = userName ?: ""
+    fun getEmailId() = emailId ?: ""
+    fun getPhoneNumber() = phoneNumber ?: ""
+    fun getWebsite() = webSite ?: ""
+    fun getAddress() = address?.getCompleteAddress() ?: ""
+}
 
 data class Address(
     private val street: String? = "",
@@ -56,4 +64,10 @@ data class Address(
 
     @SerializedName(ApiConstants.ZipCode)
     private val zipCode: String? = ""
-)
+) {
+    private fun getStreet() = street ?: ""
+    private fun getSuite() = suite ?: ""
+    private fun getCity() = city ?: ""
+    private fun getZipCode() = zipCode ?: ""
+    fun getCompleteAddress() = "${getSuite()} ${getStreet()}, ${getCity()}, ${getZipCode()}"
+}

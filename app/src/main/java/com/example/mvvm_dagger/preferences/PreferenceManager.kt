@@ -23,6 +23,10 @@ class PreferenceManager @Inject constructor(application: Application) : Preferen
     override fun setUserId(userId: String) =
         preferences.putString(PreferenceConstants.UserId, userId)
 
+    override fun getName(): String = preferences.getString(PreferenceConstants.Name)!!
+
+    override fun setName(name: String) = preferences.putString(PreferenceConstants.Name, name)
+
     override fun getUserName(): String = preferences.getString(PreferenceConstants.UserName)!!
 
     override fun setUserName(userName: String) =
@@ -33,9 +37,18 @@ class PreferenceManager @Inject constructor(application: Application) : Preferen
     override fun setEmailId(emailId: String) =
         preferences.putString(PreferenceConstants.EmailId, emailId)
 
-    override fun getAccessToken(): String =
-        preferences.getString(PreferenceConstants.AccessToken)!!
+    override fun getPhoneNumber(): String = preferences.getString(PreferenceConstants.PhoneNumber)!!
 
-    override fun setAccessToken(accessToken: String) =
-        preferences.putString(PreferenceConstants.AccessToken, accessToken)
+    override fun setPhoneNumber(phoneNumber: String) =
+        preferences.putString(PreferenceConstants.PhoneNumber, phoneNumber)
+
+    override fun getWebsite(): String = preferences.getString(PreferenceConstants.Website)!!
+
+    override fun setWebsite(website: String) =
+        preferences.putString(PreferenceConstants.Website, website)
+
+    override fun getCompleteAddress(): String = preferences.getString(PreferenceConstants.Address)!!
+
+    override fun setCompleteAddress(address: String) =
+        preferences.putString(PreferenceConstants.Address, address)
 }

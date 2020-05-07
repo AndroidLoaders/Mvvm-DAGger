@@ -17,7 +17,6 @@ class AuthViewModel @Inject constructor(private val dataManager: DataManager) : 
     fun observeUser(): LiveData<User> = authUser
 
     fun authenticateUserWithId(userId: Int) {
-
         val sourceData: LiveData<User> = LiveDataReactiveStreams.fromPublisher {
             dataManager.getLoginUserDetails(userId)
         }
@@ -25,15 +24,7 @@ class AuthViewModel @Inject constructor(private val dataManager: DataManager) : 
         authUser.addSource(sourceData) {
             authUser.value = it
             authUser.removeSource(sourceData)
+            dataManager.updateUserData(it)
         }
-
-        /*dataManager.getLoginUserDetails(userId).doOnSubscribe { isLoading.onNext(true) }
-            .subscribe({
-                isLoading.onNext(false)
-                dataManager.updateUserData(it)
-            }, {
-                isLoading.onNext(false)
-                println("$TAG ${it.message}")
-            }).autoDispose(disposables)*/
     }
 }

@@ -15,21 +15,30 @@ class AppDataManager @Inject constructor(
         apiRequest.getLoginUserDetails(userId)
 
     // PreferenceRequest Callbacks
-    override fun isLogin(): Boolean = preferences.isLogin()
-
     override fun updateUserData(user: User) {
-        /*setAccessToken(user.accessToken!!)
-        setUserId(user.userId!!)
-        setUserName(user.userName!!)
-        setEmailId(user.emailId!!)*/
+        setUserId(user.getUserId())
+        setEmailId(user.getEmailId())
+        setName(user.getName())
+        setUserName(user.getUserName())
+        setWebsite(user.getWebsite())
+        setPhoneNumber(user.getPhoneNumber())
+        setCompleteAddress(user.getAddress())
     }
+
+    override fun isLogin(): Boolean = preferences.isLogin()
 
     override fun getUserId(): String = preferences.getUserId()
     override fun setUserId(userId: String) = preferences.setUserId(userId)
+    override fun getName(): String = preferences.getName()
+    override fun setName(name: String) = preferences.setName(name)
     override fun getUserName(): String = preferences.getUserName()
     override fun setUserName(userName: String) = preferences.setUserName(userName)
     override fun getEmailId(): String = preferences.getEmailId()
     override fun setEmailId(emailId: String) = preferences.setEmailId(emailId)
-    override fun getAccessToken(): String = preferences.getAccessToken()
-    override fun setAccessToken(accessToken: String) = preferences.setAccessToken(accessToken)
+    override fun getPhoneNumber(): String = preferences.getPhoneNumber()
+    override fun setPhoneNumber(phoneNumber: String) = preferences.setPhoneNumber(phoneNumber)
+    override fun getWebsite(): String = preferences.getWebsite()
+    override fun setWebsite(website: String) = preferences.setWebsite(website)
+    override fun getCompleteAddress(): String = preferences.getCompleteAddress()
+    override fun setCompleteAddress(address: String) = preferences.setCompleteAddress(address)
 }
