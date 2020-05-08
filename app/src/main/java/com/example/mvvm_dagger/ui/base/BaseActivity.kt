@@ -7,27 +7,27 @@ import com.example.mvvm_dagger.base.extensions.getTargetIntentAndFinish
 import com.example.mvvm_dagger.networkadapter.SessionManager
 import com.example.mvvm_dagger.networkadapter.api.response.ResponseStatus
 import com.example.mvvm_dagger.ui.auth.AuthActivity
-import com.example.mvvm_dagger.ui.main.MainActivity
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-abstract class BaseActivity<VM : BaseViewModel> : DaggerAppCompatActivity() {
+abstract class BaseActivity/*<VM : BaseViewModel>*/ : DaggerAppCompatActivity() {
 
     private val TAG: String = "TAG --- ${BaseActivity::class.java.simpleName} --->"
 
     @Inject
     internal lateinit var sessionManager: SessionManager
 
-    @Inject
-    internal lateinit var viewModel: VM
+    /*@Inject
+    internal lateinit var viewModel: VM*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
+        subscribeData()
     }
 
     abstract fun getLayoutId(): Int
-    abstract fun getViewModelData(): VM
+    //abstract fun getViewModelData(): VM
 
     private fun subscribeData() {
         sessionManager.observeAuthUser().observe(this, Observer {
@@ -35,7 +35,8 @@ abstract class BaseActivity<VM : BaseViewModel> : DaggerAppCompatActivity() {
             when (it.status) {
                 ResponseStatus.Loading -> {
                 }
-                ResponseStatus.Success -> {}
+                ResponseStatus.Success -> {
+                }
                 ResponseStatus.Error -> {
                     Toast.makeText(this, "Id must be within 1 to 10", Toast.LENGTH_SHORT).show()
                 }
