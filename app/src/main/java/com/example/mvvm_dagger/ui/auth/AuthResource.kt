@@ -3,11 +3,11 @@ package com.example.mvvm_dagger.ui.auth
 import com.example.mvvm_dagger.networkadapter.api.response.ResponseStatus
 
 class AuthResource<T>(
-    responseStatus: ResponseStatus, private val data: T?,
-    private val message: String = ""
+    responseStatus: ResponseStatus, mData: T?, private val message: String = ""
 ) {
 
     val status:ResponseStatus = responseStatus
+    val data:T? = mData
 
     companion object {
         fun <T> authenticated(data: T): AuthResource<T> =

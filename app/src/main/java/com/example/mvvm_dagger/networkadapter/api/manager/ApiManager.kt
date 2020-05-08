@@ -1,6 +1,8 @@
 package com.example.mvvm_dagger.networkadapter.api.manager
 
+import com.example.mvvm_dagger.base.extensions.rx.subscribeAndObserve
 import com.example.mvvm_dagger.base.extensions.rx.subscribeAndObserveWithDelaySubscription
+import com.example.mvvm_dagger.models.Post
 import com.example.mvvm_dagger.models.User
 import com.example.mvvm_dagger.networkadapter.api.requests.ApiInterface
 import com.example.mvvm_dagger.networkadapter.api.requests.ApiRequest
@@ -13,4 +15,7 @@ class ApiManager @Inject constructor(private val apiClient: ApiInterface) : ApiR
 
     override fun getLoginUserDetails(userId: Int): Single<User> =
         apiClient.getLoginUserDetails(userId).subscribeAndObserveWithDelaySubscription()
+
+    override fun getPosts(userId: Int): Single<MutableList<Post>> =
+        apiClient.getPosts(userId).subscribeAndObserve()
 }

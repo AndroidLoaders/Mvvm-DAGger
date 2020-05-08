@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.mvvm_dagger.BaseApplication
 import com.example.mvvm_dagger.di.modules.ActivityBuildersModule
 import com.example.mvvm_dagger.di.modules.AppModule
+import com.example.mvvm_dagger.di.modules.FragmentBuilderModule
 import com.example.mvvm_dagger.di.modules.ViewModelProviderFactoryModule
 import com.example.mvvm_dagger.networkadapter.SessionManager
 import com.example.mvvm_dagger.networkadapter.api.requests.ApiInterface

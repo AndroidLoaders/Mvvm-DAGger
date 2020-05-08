@@ -1,5 +1,7 @@
 package com.example.mvvm_dagger.networkadapter.apiconstants
 
+import android.icu.text.CaseMap
+
 object ApiConstants {
 
     const val Id: String = "id"
@@ -9,4 +11,8 @@ object ApiConstants {
     const val PhoneNumber: String = "phone"
     const val WebSite: String = "website"
     const val Address: String = "address"
+
+    const val UserId: String = "userId"
+    const val Title: String = "title"
+    const val Body: String = "body"
 }

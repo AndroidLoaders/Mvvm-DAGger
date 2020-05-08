@@ -10,15 +10,15 @@ import com.example.mvvm_dagger.ui.auth.AuthActivity
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-abstract class BaseActivity/*<VM : BaseViewModel>*/ : DaggerAppCompatActivity() {
+abstract class BaseActivity : DaggerAppCompatActivity() {
 
     private val TAG: String = "TAG --- ${BaseActivity::class.java.simpleName} --->"
 
     @Inject
     internal lateinit var sessionManager: SessionManager
 
-    /*@Inject
-    internal lateinit var viewModel: VM*/
+    @Inject
+    //internal lateinit var viewModel: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

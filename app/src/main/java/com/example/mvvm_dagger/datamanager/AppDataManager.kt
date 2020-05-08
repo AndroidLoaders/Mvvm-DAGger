@@ -1,9 +1,9 @@
 package com.example.mvvm_dagger.datamanager
 
+import com.example.mvvm_dagger.models.Post
 import com.example.mvvm_dagger.models.User
 import com.example.mvvm_dagger.networkadapter.api.requests.ApiRequest
 import com.example.mvvm_dagger.preferences.PreferenceRequest
-import io.reactivex.Flowable
 import io.reactivex.Single
 import javax.inject.Inject
 
@@ -14,6 +14,8 @@ class AppDataManager @Inject constructor(
     // ApiRequest Callbacks
     override fun getLoginUserDetails(userId: Int): Single<User> =
         apiRequest.getLoginUserDetails(userId)
+
+    override fun getPosts(userId: Int): Single<MutableList<Post>> = apiRequest.getPosts(userId)
 
     // PreferenceRequest Callbacks
     override fun updateUserData(user: User) {
