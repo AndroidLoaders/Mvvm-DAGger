@@ -1,4 +1,4 @@
-package com.example.mvvm_dagger.ui
+package com.example.mvvm_dagger.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

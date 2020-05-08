@@ -23,3 +23,8 @@ inline fun <reified VM : ViewModel> AppCompatActivity.createViewModel(crossinlin
 
 fun <T : AppCompatActivity> AppCompatActivity.getTargetIntent(targetActivity: Class<T>) =
     Intent(this, targetActivity)
+
+fun <T : AppCompatActivity> AppCompatActivity.getTargetIntentAndFinish(targetActivity: Class<T>) {
+    startActivity(getTargetIntent(targetActivity))
+    finish()
+}

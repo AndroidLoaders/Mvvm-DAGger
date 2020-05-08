@@ -5,6 +5,7 @@ import com.example.mvvm_dagger.BaseApplication
 import com.example.mvvm_dagger.di.modules.ActivityBuildersModule
 import com.example.mvvm_dagger.di.modules.AppModule
 import com.example.mvvm_dagger.di.modules.ViewModelProviderFactoryModule
+import com.example.mvvm_dagger.networkadapter.SessionManager
 import com.example.mvvm_dagger.networkadapter.api.requests.ApiInterface
 import dagger.BindsInstance
 import dagger.Component
@@ -20,6 +21,8 @@ import javax.inject.Singleton
     ]
 )
 interface AppComponent : AndroidInjector<BaseApplication> {
+
+    fun sessionManager(): SessionManager
 
     @Component.Builder
     interface Builder {

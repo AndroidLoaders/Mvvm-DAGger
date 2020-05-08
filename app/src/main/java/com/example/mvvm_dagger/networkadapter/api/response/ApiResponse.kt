@@ -1,4 +1,4 @@
-package com.example.mvvm_dagger.networkadapter.api.apiresponse
+package com.example.mvvm_dagger.networkadapter.api.response
 
 import com.example.mvvm_dagger.model.ApiStatus
 
