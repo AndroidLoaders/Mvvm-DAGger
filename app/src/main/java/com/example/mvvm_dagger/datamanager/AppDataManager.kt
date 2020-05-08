@@ -17,7 +17,6 @@ class AppDataManager @Inject constructor(
 
     override fun getPosts(userId: Int): Single<MutableList<Post>> = apiRequest.getPosts(userId)
 
-    // PreferenceRequest Callbacks
     override fun updateUserData(user: User) {
         setUserId(user.getUserId())
         setEmailId(user.getEmailId())
@@ -28,6 +27,7 @@ class AppDataManager @Inject constructor(
         setCompleteAddress(user.getAddress())
     }
 
+    // PreferenceRequest Callbacks
     override fun isLogin(): Boolean = preferences.isLogin()
 
     override fun getUserId(): String = preferences.getUserId()
