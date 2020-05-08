@@ -9,6 +9,13 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ActivityBuildersModule {
 
+    /**
+    * @ContributesAndroidInjector is used only for Activity and Fragments so that
+    * so that when we need their object we can get from Dagger at any point of time.
+    *
+    * Basically it will generate SubComponent internally.
+    */
+
     @ContributesAndroidInjector(modules = [AuthViewModelModule::class])
     abstract fun contributeAuthActivity(): AuthActivity
 
