@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.mvvm_dagger.R
 import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
 class PostsFragment : DaggerFragment() {
 
@@ -14,6 +15,9 @@ class PostsFragment : DaggerFragment() {
     companion object {
         val Tag: String = PostsFragment::class.java.simpleName
     }
+
+    @Inject
+    internal lateinit var viewModel: PostsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
