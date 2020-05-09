@@ -6,6 +6,7 @@ import android.view.MenuItem
 import com.example.mvvm_dagger.R
 import com.example.mvvm_dagger.networkadapter.SessionManager
 import com.example.mvvm_dagger.ui.base.BaseActivity
+import com.example.mvvm_dagger.ui.main.posts.PostsFragment
 import com.example.mvvm_dagger.ui.main.profile.ProfileFragment
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
@@ -16,7 +17,7 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer, ProfileFragment(), ProfileFragment.Tag)
+            .add(R.id.fragmentContainer, PostsFragment(), PostsFragment.Tag)
             .commit()
     }
 

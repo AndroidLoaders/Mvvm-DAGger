@@ -7,6 +7,6 @@ object ApiProvider {
     private const val GET_LOGIN_USER = "users/{${ApiConstants.Id}}"
     const val ApiGetLoginUser = BuildConfig.BASE_URL + GET_LOGIN_USER
 
-    private const val GET_POSTS = "posts?${ApiConstants.UserId}="
+    private const val GET_POSTS = "posts"
     const val ApiGetPosts = BuildConfig.BASE_URL + GET_POSTS
 }

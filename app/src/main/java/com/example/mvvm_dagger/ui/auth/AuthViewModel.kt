@@ -16,9 +16,9 @@ class AuthViewModel @Inject constructor(
 
     fun authenticateUserWithId(userId: Int) {
         dataManager.getLoginUserDetails(userId)
-            .doOnSubscribe { sessionManager.addLiveUser(AuthResource.loading()) }
-            .doOnSuccess { sessionManager.addLiveUser(AuthResource.authenticated(it)) }
-            .doOnError { sessionManager.addLiveUser(AuthResource.error(it.message ?: "")) }
+            .doOnSubscribe { sessionManager.addLiveUser(Resource.loading()) }
+            .doOnSuccess { sessionManager.addLiveUser(Resource.success(it)) }
+            .doOnError { sessionManager.addLiveUser(Resource.error(it.message ?: "")) }
             .subscribe({ dataManager.updateUserData(it) },
                 { println("$TAG ${it.message}") })
             .autoDispose(disposables)

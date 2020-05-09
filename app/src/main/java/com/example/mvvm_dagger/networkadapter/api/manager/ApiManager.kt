@@ -16,6 +16,6 @@ class ApiManager @Inject constructor(private val apiClient: ApiInterface) : ApiR
     override fun getLoginUserDetails(userId: Int): Single<User> =
         apiClient.getLoginUserDetails(userId).subscribeAndObserveWithDelaySubscription()
 
-    override fun getPosts(userId: Int): Single<MutableList<Post>> =
+    override fun getPosts(userId: Int): Single<List<Post>> =
         apiClient.getPosts(userId).subscribeAndObserve()
 }

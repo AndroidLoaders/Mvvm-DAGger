@@ -3,22 +3,22 @@ package com.example.mvvm_dagger.networkadapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import com.example.mvvm_dagger.models.User
-import com.example.mvvm_dagger.ui.auth.AuthResource
+import com.example.mvvm_dagger.ui.auth.Resource
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class SessionManager @Inject constructor() {
 
-    private val cachedUser: MediatorLiveData<AuthResource<User?>> = MediatorLiveData()
+    private val cachedUser: MediatorLiveData<Resource<User?>> = MediatorLiveData()
 
-    fun observeAuthUser(): LiveData<AuthResource<User?>> = cachedUser
+    fun observeAuthUser(): LiveData<Resource<User?>> = cachedUser
 
-    fun addLiveUser(authUser: AuthResource<User?>) {
-        cachedUser.value = authUser
+    fun addLiveUser(user: Resource<User?>) {
+        cachedUser.value = user
     }
 
     fun logoutUser() {
-        cachedUser.value = AuthResource.logout()
+        cachedUser.value = Resource.logout()
     }
 }

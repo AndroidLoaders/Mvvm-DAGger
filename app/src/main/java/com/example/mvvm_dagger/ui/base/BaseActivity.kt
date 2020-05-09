@@ -17,7 +17,7 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
     @Inject
     internal lateinit var sessionManager: SessionManager
 
-    @Inject
+    //@Inject
     //internal lateinit var viewModel: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
