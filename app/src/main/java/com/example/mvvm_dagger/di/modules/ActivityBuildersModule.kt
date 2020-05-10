@@ -1,5 +1,7 @@
 package com.example.mvvm_dagger.di.modules
 
+import com.example.mvvm_dagger.di.annotations.AuthScope
+import com.example.mvvm_dagger.di.annotations.MainScope
 import com.example.mvvm_dagger.di.modules.auth.AuthViewModelModule
 import com.example.mvvm_dagger.di.modules.main.MainViewModelModule
 import com.example.mvvm_dagger.ui.auth.AuthActivity
@@ -17,9 +19,11 @@ abstract class ActivityBuildersModule {
      * Basically it will generate SubComponent internally.
      */
 
+    @AuthScope
     @ContributesAndroidInjector(modules = [AuthViewModelModule::class])
     abstract fun contributeAuthActivity(): AuthActivity
 
+    @MainScope
     @ContributesAndroidInjector(
         modules = [FragmentBuilderModule::class, MainViewModelModule::class]
     )
